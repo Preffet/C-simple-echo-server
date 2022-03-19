@@ -1,70 +1,48 @@
-This project is a solution to freecodecamp "Scientific Computing with Python" course "Polygon Area Calculator" assignment.
+### UDP socket programming exercise
 
-### Assignment
+This program is an example of a very simple client-server program in C. The client sends a message to the server, the server prints the message on screen with the total number of bytes received. If the client enters a message that begins with a ".", the client will send the message and then terminate. When the server receives a message that begins with a ".", it terminates.
 
-In this project you will use object oriented programming to create a Rectangle class and a Square class. The Square class should be a subclass of Rectangle and inherit methods and attributes.
+You can use localhost as a client and as a server. This is called the loopback interface. Packets sent to the local host address (127.0.0.1) are not put onto the physical network but a loopback emulation of a network. They are processed locally and treated as incoming packets. At the level of abstraction of socket programming there is no difference between a physical network interface and the loopback interface. Provided you have appropriate privileges, the same program will run using the loopback interface or across a real physical network. This is useful for testing.
 
-#### Rectangle class
-When a Rectangle object is created, it should be initialized with `width` and `height` attributes. The class should also contain the following methods:
-* `set_width`
-* `set_height`
-* `get_area`: Returns area (`width * height`)
-* `get_perimeter`: Returns perimeter (`2 * width + 2 * height`)
-* `get_diagonal`: Returns diagonal (`(width ** 2 + height ** 2) ** .5`)
-* `get_picture`: Returns a string that represents the shape using lines of "\*". The number of lines should be equal to the height and the number of "\*" in each line should be equal to the width. There should be a new line (`\n`) at the end of each line. If the width or height is larger than 50, this should return the string: "Too big for picture.".
-* `get_amount_inside`: Takes another shape (square or rectangle) as an argument. Returns the number of times the passed in shape could fit inside the shape (with no rotations). For instance, a rectangle with a width of 4 and a height of 8 could fit in two squares with sides of 4.
+This project contains the following files:   
+   
+echo-server/
+- Makefile
+- echo_client.c
+- echo_server.c
 
-Additionally, if an instance of a Rectangle is represented as a string, it should look like: `Rectangle(width=5, height=10)`
+To build the client and server do:
 
-#### Square class
-The Square class should be a subclass of Rectangle. When a Square object is created, a single side length is passed in. The `__init__` method should store the side length in both the `width` and `height` attributes from the Rectangle class.
-
-The Square class should be able to access the Rectangle class methods but should also contain a `set_side` method. If an instance of a Square is represented as a string, it should look like: `Square(side=9)`
-
-Additionally, the `set_width` and `set_height` methods on the Square class should set both the width and height.
-
-#### Usage example
-```py
-rect = shape_calculator.Rectangle(10, 5)
-print(rect.get_area())
-rect.set_height(3)
-print(rect.get_perimeter())
-print(rect)
-print(rect.get_picture())
-
-sq = shape_calculator.Square(9)
-print(sq.get_area())
-sq.set_side(4)
-print(sq.get_diagonal())
-print(sq)
-print(sq.get_picture())
-
-rect.set_height(8)
-rect.set_width(16)
-print(rect.get_amount_inside(sq))
 ```
-That code should return:
+make
 ```
-50
-26
-Rectangle(width=10, height=3)
-**********
-**********
-**********
-
-81
-5.656854249492381
-Square(side=4)
-****
-****
-****
-****
-
-8
+or
 ```
+make clean 
+make
+```
+   
+    
+    
+### Staring the server and client
 
-The unit tests for this project are in `test_module.py`.
+You will need **two terminal windows**. Start the server in one terminal window and then the client in the other terminal.
 
-### Development
+The server command is:
 
-Write your code in `shape_calculator.py`. For development, you can use `main.py` to test your `shape_calculator()` function. Click the "run" button and `main.py` will run.
+```
+./echo_server port
+```
+where "port" is replaced by a number in the range: 1025 to 65535.
+
+You should get the following output from the server:
+```
+waiting
+```
+Now **in the other terminal window** start the client by entering the following command:
+```
+./echo_client 127.0.0.1 port
+```
+where 127.0.0.1 is the localhost or loopback address and port is replaced by the port you started the server listening to. 
+
+You will then be prompted to enter text at the client that will be echoed at the server. When you enter a message beginning "." at the client, both server and client will terminate.
