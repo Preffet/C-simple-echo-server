@@ -61,15 +61,30 @@ int main(int argc, char *argv[])
             perror("server recvfrom error");
             exit(EXIT_FAILURE);
         }
-            
+
+        if(bytes)
+        {
+            char *okBuff = "OK";
+            ssize_t bytesSent = sendto(sockfd, okBuff, 4, 0,
+                             (struct sockaddr*) &client,
+                             sizeof(struct sockaddr_in));
+
+         if (bytesSent == 0) {
+            perror("sendto failed");
+            close (sockfd);
+            exit(EXIT_FAILURE);
+         }
+
+        }
+
         if (echo_buf[0] != '.') {
             printf("server received %zd bytes:\n", bytes);
             printf("%s", echo_buf);
             printf("--------------------------\n");
-        }        
+        }
     }
-    
+
     echo_buf[1] = '\0';
     printf("server received %s, exiting ...\n", echo_buf);
-    close(sockfd); 
+    close(sockfd);
 }
