@@ -1,4 +1,10 @@
-### UDP socket programming exercise
+![Badge tracking code size](https://img.shields.io/github/languages/code-size/Preffet/C-simple-echo-server?color=%234CBB17)![Badge tracking last commit](https://img.shields.io/github/last-commit/Preffet/C-simple-echo-server?color=%2317bb53) ![Badge tracking project size](https://img.shields.io/github/repo-size/Preffet/C-simple-echo-server?color=%2317bb9d) 
+
+
+![banner](https://user-images.githubusercontent.com/84241003/161335385-528ac047-0959-4657-9bb9-64a8800e6d53.png)
+
+-----------------------------------------------------------------------------
+### Description
 
 This program is an example of a very simple client-server program in C. The client sends a message to the server, the server prints the message on screen with the total number of bytes received. If the client enters a message that begins with a ".", the client will send the message and then terminate. When the server receives a message that begins with a ".", it terminates.
 
@@ -11,6 +17,9 @@ echo-server/
 - echo_client.c
 - echo_server.c
 
+-----------------------------------------------------------------------------
+### How to build and run the project
+
 To build the client and server do:
 
 ```
@@ -21,8 +30,6 @@ or
 make clean 
 make
 ```
-   
-    
     
 ### Staring the server and client
 
