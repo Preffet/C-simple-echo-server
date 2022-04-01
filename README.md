@@ -1,5 +1,4 @@
-![Badge tracking code size](https://img.shields.io/github/languages/code-size/Preffet/C-simple-echo-server?color=%234CBB17)![Badge tracking last commit](https://img.shields.io/github/last-commit/Preffet/C-simple-echo-server?color=%2317bb53) ![Badge tracking project size](https://img.shields.io/github/repo-size/Preffet/C-simple-echo-server?color=%2317bb9d) 
-
+![Badge tracking project size](https://img.shields.io/github/repo-size/Preffet/C-simple-echo-server?color=%2317bb9d) ![Badge tracking last commit](https://img.shields.io/github/last-commit/Preffet/C-simple-echo-server?color=%2317bb53) ![Badge tracking code size](https://img.shields.io/github/languages/code-size/Preffet/C-simple-echo-server?color=%234CBB17)
 
 ![banner](https://user-images.githubusercontent.com/84241003/161335385-528ac047-0959-4657-9bb9-64a8800e6d53.png)
 
